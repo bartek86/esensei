@@ -15,7 +15,7 @@
       -if user_signed_in?
         %li        
           %span.navbar-brand.glyphicon.glyphicon-leaf
-          /%span.navbar-brand #{username}
+          %span.navbar-brand Zalogowany jako: #{current_user.name}
         %li    
           =link_to destroy_user_session_path, method: :delete, class: 'btn btn-default' do
             %span.glyphicon.glyphicon-log-out

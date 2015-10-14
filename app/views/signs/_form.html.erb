@@ -1,0 +1,15 @@
+<%= simple_form_for(@sign) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :onyomi %>
+    <%= f.input :kunyomi %>
+    <%= f.input :translation %>
+    <%= f.input :sign_type %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sign.name %>
+</p>
+
+<p>
+  <strong>Onyomi:</strong>
+  <%= @sign.onyomi %>
+</p>
+
+<p>
+  <strong>Kunyomi:</strong>
+  <%= @sign.kunyomi %>
+</p>
+
+<p>
+  <strong>Translation:</strong>
+  <%= @sign.translation %>
+</p>
+
+<p>
+  <strong>Sign type:</strong>
+  <%= @sign.sign_type %>
+</p>
+
+<%= link_to 'Edit', edit_sign_path(@sign) %> |
+<%= link_to 'Back', signs_path %>

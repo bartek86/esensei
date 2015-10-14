@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  onyomi: MyString
+  kunyomi: MyString
+  translation: MyString
+  sign_type: MyString
+
+two:
+  name: MyString
+  onyomi: MyString
+  kunyomi: MyString
+  translation: MyString
+  sign_type: MyString
