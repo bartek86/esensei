@@ -1,0 +1,16 @@
+<%= simple_form_for(@problem) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :body %>
+    <%= f.input :true_answer %>
+    <%= f.input :answer2 %>
+    <%= f.input :answer3 %>
+    <%= f.input :answer4 %>
+    <%= f.association :topic %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

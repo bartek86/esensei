@@ -1,6 +1,7 @@
 class SignsController < ApplicationController
   before_action :set_sign, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_teacher, only: [:new, :edit, :create, :update, :destroy]
+    
   # GET /signs
   # GET /signs.json
   def index
@@ -66,7 +67,11 @@ class SignsController < ApplicationController
     def set_sign
       @sign = Sign.find(params[:id])
     end
-
+    
+    def require_teacher
+      redirect_to(root_path) unless current_user.admin? or current_user.teacher?
+    end
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def sign_params
       params.require(:sign).permit(:name, :onyomi, :kunyomi, :translation, :sign_type)

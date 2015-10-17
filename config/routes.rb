@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
+
   resources :signs
-  resources :topics
+  
+  resources :topics do
+    resources :problems
+    resources :quizzes
+  end
+  
   devise_for :users
+  
   get 'static_pages/home'
 
   get 'static_pages/about'
