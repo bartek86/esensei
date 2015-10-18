@@ -1,0 +1,30 @@
+%p#notice
+  = notice
+%div.panel.panel-default
+  .panel-heading
+    %h1 Lista tematów
+    
+  .panel-body
+
+    %table
+      %thead
+        %tr
+          %th Name
+          %thTheory
+          %th
+    
+      %tbody
+        - @topics.each do |topic|
+          %tr
+            %td
+              = link_to topic.name, topic
+            -if user_signed_in? and (current_user.teacher? or current_user.admin?)
+              %td
+                = link_to 'Edit', edit_topic_path(topic) 
+              %td
+                = link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' }
+          
+    
+    %br
+    
+    = link_to 'New Topic', new_topic_path, class: 'btn btn-primary'
