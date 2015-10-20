@@ -68,10 +68,6 @@ class SignsController < ApplicationController
       @sign = Sign.find(params[:id])
     end
     
-    def require_teacher
-      redirect_to(root_path) unless current_user.admin? or current_user.teacher?
-    end
-    
     # Never trust parameters from the scary internet, only allow the white list through.
     def sign_params
       params.require(:sign).permit(:name, :onyomi, :kunyomi, :translation, :sign_type)

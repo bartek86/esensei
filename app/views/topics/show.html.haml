@@ -1,0 +1,16 @@
+%p#notice= notice
+%div.row
+  .col-md-6
+    .panel.panel-default
+      .panel-heading
+        = @topic.name
+      .panel-body
+        = @topic.theory
+      %br
+        - if auth?
+          = link_to 'Edit', edit_topic_path(@topic)
+        = link_to 'Back', topics_path, class: 'btn btn-primary'
+  .col-md-6     
+    = render 'problems' 
+
+

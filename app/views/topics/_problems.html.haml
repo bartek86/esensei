@@ -1,0 +1,19 @@
+.col-md-11
+  %div.panel.panel-default
+    .panel-heading
+      %h3 Przykłady
+
+    .panel-body
+      - @topic.problems.each do |problem|
+        %table.table
+          %thead
+            %tr
+              %th 
+                = problem.body
+            %tr
+              %td
+                = problem.true_answer
+                = problem.answer2
+                = problem.answer3
+                = problem.answer4
+        %br

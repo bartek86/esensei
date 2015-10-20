@@ -1,0 +1,28 @@
+%p#notice= notice
+%div.panel.panel-default
+  .panel-heading
+    %h1 Listing Signs
+%table
+  %thead
+    %tr
+      %th Name
+      %th Onyomi
+      %th Kunyomi
+      %th Translation
+      %th Sign type
+      %th{:colspan => "3"}
+  %tbody
+    - @signs.each do |sign|
+      %tr
+        %td
+          = link_to sign.name, sign
+        %td= sign.onyomi
+        %td= sign.kunyomi
+        %td= sign.translation
+        %td= sign.sign_type
+        - if auth?
+          %td= link_to 'Edit', edit_sign_path(sign)
+          %td= link_to 'Destroy', sign, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+-if auth?
+  = link_to 'New Sign', new_sign_path, class: 'btn btn-primary'

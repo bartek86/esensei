@@ -1,0 +1,26 @@
+%p#notice= notice
+%h1 Listing Problems
+%table
+  %thead
+    %tr
+      %th Body
+      %th True answer
+      %th Answer2
+      %th Answer3
+      %th Answer4
+      %th Topic
+      %th{:colspan => "3"}
+  %tbody
+    - @problems.each do |problem|
+      %tr
+        %td= problem.body
+        %td= problem.true_answer
+        %td= problem.answer2
+        %td= problem.answer3
+        %td= problem.answer4
+        %td= problem.topic
+        - if auth?
+          %td= link_to 'Edit', edit_problem_path(problem)
+          %td= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Problem', new_topic_problem_path(@topic.problem, @problem), class: 'btn btn-primary'

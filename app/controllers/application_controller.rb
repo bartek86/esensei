@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   before_action :configure_permitted_parameters, if: :devise_controller?
+
   
   protected
     #set strong parameters for new sign up fields
@@ -13,5 +14,9 @@ class ApplicationController < ActionController::Base
       
       devise_parameter_sanitizer.for(:account_update) { 
         |u| u.permit(:email, :password, :password_confirmation, :current_password, :name, :teacher) }
+    end
+    
+    def require_teacher
+      redirect_to(root_path) unless current_user.admin? or current_user.teacher?
     end
 end
